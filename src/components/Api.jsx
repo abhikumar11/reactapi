@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useEffect,useState } from "react";
-
-
 const Api = () => {
      const [apidata, setApiData] = useState([]);
 
