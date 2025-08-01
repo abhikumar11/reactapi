@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Form = () => {
     const [frmData,setFrmData]=useState({});
+    
     const navigate=useNavigate();
     const handleInput=(e)=>{
         const {name,value}=e.target;
@@ -19,6 +20,7 @@ const Form = () => {
   return (
     <div>
         <h1>User Form</h1>
+        <Link to="/apidata">User Table</Link>
         <form onSubmit={handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" onChange={handleInput}/><br/><br/>
