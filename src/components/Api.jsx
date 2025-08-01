@@ -89,7 +89,7 @@ const Api = () => {
                     ))}
                </table>
 
-               <div style={{ display: loadForm ? "block" : "none" }}>
+               <div style={{ marginTop:"15px",display: loadForm ? "block" : "none" }}>
                     <form onSubmit={handleSubmit}>
                          <label>Name</label>
                          <input
@@ -128,7 +128,15 @@ const Api = () => {
                          <br />
                          <br />
                          <input type="submit" value="Submit" />
+                           <button
+          type="button"
+          onClick={() => setLoadForm(false)}
+          style={{ marginLeft: "10px" }}
+     >
+          Cancel
+     </button>
                     </form>
+                    
                </div>
           </div>
      );
