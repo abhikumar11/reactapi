@@ -1,10 +1,14 @@
+import { Route, Routes } from "react-router-dom"
 import Api from "./components/Api"
+import Form from "./components/Form"
 
 const App = () => {
   return (
     <div>
-      <h1>This is App</h1>
-      <Api/>
+      <Routes>
+        <Route index element={<Form/>}/>
+        <Route path="/apidata" element={<Api/>}/>
+      </Routes>
     </div>
   )
 }
