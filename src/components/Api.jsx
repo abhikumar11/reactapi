@@ -20,7 +20,7 @@ const Api = () => {
           );
      };
 
-     const handleDelete = (id) => {
+     const handleDelete=(id) => {
           axios.delete(`http://localhost:3000/userdata/${id}`)
           .then(() => alert("user deleted"))
                .catch(() => alert("something went wrong"));
