@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 const Api = () => {
      const [apidata, setApiData] = useState([]);
      const [userid, setUserId] = useState(null);
+
+
      useEffect(() => {
-          fetchData();
+           axios.get("http://localhost:3000/userdata").then((res) =>
+               setApiData(res.data)
+          );
+          //fetchData();
      }, []);
+  
 
      const fetchData = () => {
           axios.get("http://localhost:3000/userdata").then((res) =>
@@ -16,12 +22,20 @@ const Api = () => {
 
      const handleDelete = (id) => {
           axios.delete(`http://localhost:3000/userdata/${id}`)
-               .then(() => {
-                    alert("user deleted");
-                    fetchData();
-               })
+          .then(() => alert("user deleted"))
                .catch(() => alert("something went wrong"));
      };
+          const handleEdit = (item) => {
+          setFrmData(item);
+          setLoadForm(true);
+          setUserId(item.id);
+     };
+        useEffect(() => {
+           axios.get("http://localhost:3000/userdata").then((res) =>
+               setApiData(res.data)
+          );
+          //fetchData();
+     }, [handleDelete]);
      const [frmData, setFrmData] = useState({});
      const [loadForm, setLoadForm] = useState(false);
 
@@ -29,11 +43,7 @@ const Api = () => {
           const { name, value } = e.target;
           setFrmData({ ...frmData, [name]: value });
      };
-     const handleEdit = (item) => {
-          setFrmData(item);
-          setLoadForm(true);
-          setUserId(item.id);
-     };
+
      const handleSubmit = (e) => {
           e.preventDefault();
           axios.put(`http://localhost:3000/userdata/${userid}`, frmData)
