@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Link, Route, Routes } from "react-router-dom"
 import Api from "./components/Api"
 import Form from "./components/Form"
 import Home from "./components/Home"
@@ -10,6 +10,9 @@ import Contatct from "./components/Contatct"
 const App = () => {
   return (
     <div>
+      <Link to="/about/1">User 1</Link>
+      <Link to="/about/2">User 2</Link>
+      <Link to="/about/3">User 3</Link>
        <ToastContainer position="top-center" autoClose={3000}/>
       <Routes>
         <Route index element={<Home/>}/>
