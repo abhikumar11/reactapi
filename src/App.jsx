@@ -4,6 +4,8 @@ import Form from "./components/Form"
 import Home from "./components/Home"
 import { ToastContainer } from "react-toastify"
 import About from "./components/About"
+import Services from "./components/Services"
+import Contatct from "./components/Contatct"
 
 const App = () => {
   return (
@@ -13,7 +15,9 @@ const App = () => {
         <Route index element={<Home/>}/>
         <Route  element={<Form/>}/>
         <Route path="/apidata" element={<Api/>}/>
-        <Route path="/about/:id" element={<About/>}/>
+        <Route path="/about/:name" element={<About/>}/>
+        <Route path="/services/:service" element={<Services/>}/>
+        <Route path="/contact/:city" element={<Contatct/>}/>
       </Routes>
     </div>
   )
